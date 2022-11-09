@@ -18,10 +18,14 @@ test('Should calculate attack amount', () => {
   
 });
 
-test('should choose amount of damage for hit', () => {
-  expect(wizard.attack(70)).toEqual(5);
+test('should choose amount of damage for atk', () => {
+  expect(wizard.attack(50)).toEqual(5);
   expect(wizard.attack(90)).toEqual(2.5);
 })
 
+test('should choose amount of damage for mag', () => {
+  expect(wizard.magic(70)).toEqual(8);
+  expect(wizard.magic(90)).toEqual(4);
+})
 });
 
