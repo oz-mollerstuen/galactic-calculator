@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Wizard from '../src/js/wizard.js';
 import OctoSlash from '../src/js/badies/cave/octoSlash.js';
+import NyteRat from './js/badies/cave/nyterat.js';
+import Gargoyle from '../src/js/badies/church/gargoyle.js';
+import UnholyPriest from '../src/js/badies/church/unholypriest.js';
 
 let currCharacter;
 let currBadie;
@@ -35,8 +38,21 @@ const handleChurch = (event) => {
 
 const handleEngage = (event) => {
   event.preventDefault();
+  let randomizer = currCharacter.chance();
   if (currCharacter.location === "cave") {
-    currBadie = new OctoSlash();
+    if (randomizer <= 50) {
+      currBadie = new OctoSlash();
+    } else {
+      currBadie = new NyteRat();
+    }
+    document.getElementById("badieName").innerText = currBadie.name;
+    document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
+  } else {
+    if (randomizer <= 70) {
+      currBadie = new Gargoyle();
+    } else {
+      currBadie = new UnholyPriest();
+    }
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   }
