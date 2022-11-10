@@ -85,7 +85,7 @@ const handleEngage = (event) => {
       currBadie = new NyteRat();
       document.getElementById("badieImg").setAttribute("src", "assets/images/nyterat.png");
     }
-
+    document.getElementById('badieName').setAttribute('style', 'color: black;')
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   } else {
@@ -96,7 +96,7 @@ const handleEngage = (event) => {
       currBadie = new UnholyPriest();
       document.getElementById("badieImg").setAttribute("src", "assets/images/unholy.png");
     }
-
+    document.getElementById('badieName').setAttribute('style', 'color: black;')
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   }
@@ -138,6 +138,7 @@ const handleAttack = (event) => {
       currCharacter.mana = currCharacter.maxMana;
     }
     document.getElementById('heroMana').innerHTML = currCharacter.mana;
+    document.getElementById('badieName').setAttribute('style', 'color: red;')
     document.getElementById("badieName").innerText = "DEAD MEAT!";
     document.getElementById('badieHealth').innerHTML = null;
     document.getElementById('choice').removeAttribute('class', 'hidden');
@@ -175,6 +176,7 @@ const handleMagic = (event) => {
       document.getElementById('heroMana').innerHTML = currCharacter.mana;
       document.getElementById('heroExp').innerHTML = currCharacter.exp;
       document.getElementById("heroExp").innerText = currCharacter.exp;
+      document.getElementById('badieName').setAttribute('style', 'color: red;')
       document.getElementById("badieName").innerText = "DEAD MEAT!";
       if (currCharacter.mana + 3 < currCharacter.maxMana) {
         currCharacter.mana += 3;

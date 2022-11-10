@@ -6,6 +6,10 @@ h1 {
   color: white;
 }
 
+h2#badieName {
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
