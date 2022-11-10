@@ -1,10 +1,9 @@
-export default class Wizard {
+export default class unholyPriest {
   constructor() {
-    this.health = 20;
+    this.name = 'Unholy Priest';
+    this.health = 25;
     this.atk = 5;
-    this.mag = 8;
-    this.exp = 0;
-    this.location = '';
+    this.exp = 20;
   }
 
   chance() {
@@ -19,14 +18,6 @@ export default class Wizard {
     }
   }
 
-  magic(randNum) {
-    if (randNum <= 85) {
-      return this.mag;
-    } else {
-      return this.mag / 2;
-    }
-  }
-
   isDead() {
     if (this.health <= 0) {
       return true;
@@ -35,4 +26,3 @@ export default class Wizard {
     }
   }
 }
-

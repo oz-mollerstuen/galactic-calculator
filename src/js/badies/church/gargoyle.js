@@ -1,10 +1,9 @@
-export default class Wizard {
+export default class Gargoyle {
   constructor() {
+    this.name = 'Gargoyle';
     this.health = 20;
-    this.atk = 5;
-    this.mag = 8;
-    this.exp = 0;
-    this.location = '';
+    this.atk = 4;
+    this.exp = 15;
   }
 
   chance() {
@@ -19,14 +18,6 @@ export default class Wizard {
     }
   }
 
-  magic(randNum) {
-    if (randNum <= 85) {
-      return this.mag;
-    } else {
-      return this.mag / 2;
-    }
-  }
-
   isDead() {
     if (this.health <= 0) {
       return true;
@@ -35,4 +26,3 @@ export default class Wizard {
     }
   }
 }
-
