@@ -2,10 +2,12 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Wizard from '../src/js/wizard.js';
-import OctoSlash from '../src/js/badies/cave/octoSlash.js';
+import Warrior from '../src/js/warrior.js';
+import Thief from '../src/js/thief.js';
+import OctoSlash from './js/badies/cave/octoSlash.js';
 import NyteRat from './js/badies/cave/nyterat.js';
-import Gargoyle from '../src/js/badies/church/gargoyle.js';
-import UnholyPriest from '../src/js/badies/church/unholypriest.js';
+import Gargoyle from './js/badies/church/gargoyle.js';
+import UnholyPriest from './js/badies/church/unholypriest.js';
 
 let currCharacter;
 let currBadie;
@@ -16,9 +18,45 @@ const handleWizard = (event) => {
   document.getElementById('charSelect').setAttribute('class', 'hidden');
   document.getElementById('charInfo').removeAttribute('class', 'hidden');
   document.getElementById('locations').removeAttribute('class', 'hidden');
+  document.getElementById('charImg').setAttribute("src", "assets/images/goatpope.png");
+  document.getElementById('heroName').innerHTML = currCharacter.name;
+  document.getElementById('heroLevel').innerHTML = currCharacter.level;
   document.getElementById('heroHealth').innerHTML = currCharacter.health;
   document.getElementById('heroAttack').innerHTML = currCharacter.atk;
   document.getElementById('heroMagic').innerHTML = currCharacter.mag;
+  document.getElementById('heroMana').innerHTML = currCharacter.mana;
+  document.getElementById('heroExp').innerHTML = currCharacter.exp;
+};
+
+const handleWarrior = (event) => {
+  event.preventDefault();
+  currCharacter = new Warrior();
+  document.getElementById('charSelect').setAttribute('class', 'hidden');
+  document.getElementById('charInfo').removeAttribute('class', 'hidden');
+  document.getElementById('locations').removeAttribute('class', 'hidden');
+  document.getElementById('charImg').setAttribute("src", "assets/images/warrior.png");
+  document.getElementById('heroName').innerHTML = currCharacter.name;
+  document.getElementById('heroLevel').innerHTML = currCharacter.level;
+  document.getElementById('heroHealth').innerHTML = currCharacter.health;
+  document.getElementById('heroAttack').innerHTML = currCharacter.atk;
+  document.getElementById('heroMagic').innerHTML = currCharacter.mag;
+  document.getElementById('heroMana').innerHTML = currCharacter.mana;
+  document.getElementById('heroExp').innerHTML = currCharacter.exp;
+};
+
+const handleThief = (event) => {
+  event.preventDefault();
+  currCharacter = new Thief();
+  document.getElementById('charSelect').setAttribute('class', 'hidden');
+  document.getElementById('charInfo').removeAttribute('class', 'hidden');
+  document.getElementById('locations').removeAttribute('class', 'hidden');
+  document.getElementById('charImg').setAttribute("src", "assets/images/thief.png");
+  document.getElementById('heroName').innerHTML = currCharacter.name;
+  document.getElementById('heroLevel').innerHTML = currCharacter.level;
+  document.getElementById('heroHealth').innerHTML = currCharacter.health;
+  document.getElementById('heroAttack').innerHTML = currCharacter.atk;
+  document.getElementById('heroMagic').innerHTML = currCharacter.mag;
+  document.getElementById('heroMana').innerHTML = currCharacter.mana;
   document.getElementById('heroExp').innerHTML = currCharacter.exp;
 };
 
@@ -42,17 +80,23 @@ const handleEngage = (event) => {
   if (currCharacter.location === "cave") {
     if (randomizer <= 50) {
       currBadie = new OctoSlash();
+      document.getElementById("badieImg").setAttribute("src", "assets/images/octoslash.png");
     } else {
       currBadie = new NyteRat();
+      document.getElementById("badieImg").setAttribute("src", "assets/images/nyterat.png");
     }
+
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   } else {
     if (randomizer <= 70) {
       currBadie = new Gargoyle();
+      document.getElementById("badieImg").setAttribute("src", "assets/images/gargoyle.png");
     } else {
       currBadie = new UnholyPriest();
+      document.getElementById("badieImg").setAttribute("src", "assets/images/unholy.png");
     }
+    
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   }
@@ -79,7 +123,8 @@ const handleAttack = (event) => {
   } else {
     currCharacter.exp += currBadie.exp;
     document.getElementById("heroExp").innerText = currCharacter.exp
-    document.getElementById("badieName").innerText = "That's some fine Taco Nagiri";
+    document.getElementById("badieName").innerText = "DEAD MEAT!";
+    document.getElementById('badieHealth').innerHTML = null;
     document.getElementById('choice').removeAttribute('class', 'hidden');
     document.getElementById('moves').setAttribute('class', 'hidden');
   }
@@ -100,7 +145,8 @@ const handleMagic = (event) => {
   } else {
     currCharacter.exp += currBadie.exp;
     document.getElementById("heroExp").innerText = currCharacter.exp
-    document.getElementById("badieName").innerText = "That's some fine Taco Nagiri";
+    document.getElementById("badieName").innerText = "DEAD MEAT!";
+    document.getElementById('badieHealth').innerHTML = null;
     document.getElementById('choice').removeAttribute('class', 'hidden');
     document.getElementById('moves').setAttribute('class', 'hidden');
   }
@@ -117,6 +163,8 @@ const handleRestart = () => {
 
 addEventListener('load', function () {
   document.getElementById('wizard').addEventListener('click', handleWizard);
+  document.getElementById('warrior').addEventListener('click', handleWarrior);
+  document.getElementById('thief').addEventListener('click', handleThief);
   document.getElementById('cave').addEventListener('click', handleCave);
   document.getElementById('church').addEventListener('click', handleChurch);
   document.getElementById('engage').addEventListener('click', handleEngage);

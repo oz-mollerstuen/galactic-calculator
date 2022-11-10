@@ -1,11 +1,11 @@
-export default class Wizard {
+export default class Warrior {
   constructor() {
-    this.name = 'Goat Pope';
+    this.name = 'Billi the Beserker';
     this.level = 1;
-    this.health = 20;
-    this.atk = 4;
-    this.mag = 8;
-    this.mana = 20;
+    this.health = 15;
+    this.atk = 9;
+    this.mag = 2;
+    this.mana = 5;
     this.exp = 0;
     this.location = '';
   }
@@ -15,7 +15,7 @@ export default class Wizard {
   }
 
   attack(randNum) {
-    if (randNum <= 60) {
+    if (randNum <= 80) {
       return this.atk;
     }else{
       return this.atk / 2;
@@ -23,7 +23,7 @@ export default class Wizard {
   }
 
   magic(randNum) {
-    if (randNum <= 85) {
+    if (randNum <= 50) {
       return this.mag;
     } else {
       return this.mag / 2;
@@ -38,4 +38,3 @@ export default class Wizard {
     }
   }
 }
-

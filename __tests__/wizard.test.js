@@ -8,9 +8,12 @@ describe('Wizard', () => {
   });
 
   test('should great a wizard object.', () => {
+    expect(wizard.name).toEqual('Goat Pope');
+    expect(wizard.level).toEqual(1);
     expect(wizard.health).toEqual(20);
     expect(wizard.atk).toEqual(5);
     expect(wizard.mag).toEqual(8);
+    expect(wizard.mana).toEqual(20);
     expect(wizard.exp).toEqual(0);
     expect(wizard.location).toEqual('');
   });

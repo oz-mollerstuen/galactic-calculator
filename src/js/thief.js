@@ -1,9 +1,13 @@
-export default class unholyPriest {
+export default class Thief {
   constructor() {
-    this.name = 'Unholy Priest';
+    this.name = 'Sneeki Peatmoss';
+    this.level = 1;
     this.health = 25;
     this.atk = 5;
-    this.exp = 30;
+    this.mag = 5;
+    this.mana = 10;
+    this.exp = 0;
+    this.location = '';
   }
 
   chance() {
@@ -11,10 +15,18 @@ export default class unholyPriest {
   }
 
   attack(randNum) {
-    if (randNum <= 60) {
+    if (randNum <= 80) {
       return this.atk;
     }else{
       return this.atk / 2;
+    }
+  }
+
+  magic(randNum) {
+    if (randNum <= 80) {
+      return this.mag;
+    } else {
+      return this.mag / 2;
     }
   }
 

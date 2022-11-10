@@ -3,7 +3,7 @@ export default class Gargoyle {
     this.name = 'Gargoyle';
     this.health = 20;
     this.atk = 4;
-    this.exp = 15;
+    this.exp = 20;
   }
 
   chance() {
