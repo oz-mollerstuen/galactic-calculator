@@ -2,9 +2,11 @@ export default class Warrior {
   constructor() {
     this.name = 'Billi the Beserker';
     this.level = 1;
+    this.maxHealth = 15;
     this.health = 15;
     this.atk = 9;
     this.mag = 2;
+    this.maxMana = 5;
     this.mana = 5;
     this.exp = 0;
     this.location = '';
@@ -27,6 +29,19 @@ export default class Warrior {
       return this.mag;
     } else {
       return this.mag / 2;
+    }
+  }
+
+  lvlUp() {
+    if (this.exp >= 60) {
+      this.exp -= 60;
+      this.level += 1;
+      this.maxHealth += 5;
+      this.health = this.maxHealth;
+      this.atk += 2;
+      this.mag += 2;
+      this.maxMana += 3;
+      this.mana = this.maxMana;
     }
   }
 

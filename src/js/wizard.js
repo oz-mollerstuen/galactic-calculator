@@ -2,9 +2,11 @@ export default class Wizard {
   constructor() {
     this.name = 'Goat Pope';
     this.level = 1;
+    this.maxHealth = 20;
     this.health = 20;
     this.atk = 4;
     this.mag = 8;
+    this.maxMana = 20;
     this.mana = 20;
     this.exp = 0;
     this.location = '';
@@ -27,6 +29,19 @@ export default class Wizard {
       return this.mag;
     } else {
       return this.mag / 2;
+    }
+  }
+
+  lvlUp() {
+    if (this.exp >= 60) {
+      this.exp -= 60;
+      this.level += 1;
+      this.maxHealth += 5;
+      this.health = this.maxHealth;
+      this.atk += 2;
+      this.mag += 2;
+      this.maxMana += 3;
+      this.mana = this.maxMana;
     }
   }
 

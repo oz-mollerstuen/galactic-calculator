@@ -96,7 +96,7 @@ const handleEngage = (event) => {
       currBadie = new UnholyPriest();
       document.getElementById("badieImg").setAttribute("src", "assets/images/unholy.png");
     }
-    
+
     document.getElementById("badieName").innerText = currBadie.name;
     document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   }
@@ -115,14 +115,29 @@ const handleLeave = (event) => {
 
 const handleAttack = (event) => {
   event.preventDefault();
-  currBadie.health -= currCharacter.attack(currCharacter.chance())
+  document.getElementById("dead").innerText = null;
+  currBadie.health -= currCharacter.attack(currCharacter.chance());
   document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
   if (!currBadie.isDead()) {
-    currCharacter.health -= currBadie.attack(currBadie.chance())
+    currCharacter.health -= currBadie.attack(currBadie.chance());
     document.getElementById("heroHealth").innerText = currCharacter.health;
   } else {
     currCharacter.exp += currBadie.exp;
-    document.getElementById("heroExp").innerText = currCharacter.exp
+    currCharacter.lvlUp();
+    document.getElementById('heroName').innerHTML = currCharacter.name;
+    document.getElementById('heroLevel').innerHTML = currCharacter.level;
+    document.getElementById('heroHealth').innerHTML = currCharacter.health;
+    document.getElementById('heroAttack').innerHTML = currCharacter.atk;
+    document.getElementById('heroMagic').innerHTML = currCharacter.mag;
+    document.getElementById('heroMana').innerHTML = currCharacter.mana;
+    document.getElementById('heroExp').innerHTML = currCharacter.exp;
+    document.getElementById("heroExp").innerText = currCharacter.exp;
+    if (currCharacter.mana + 3 < currCharacter.maxMana) {
+      currCharacter.mana += 3;
+    } else {
+      currCharacter.mana = currCharacter.maxMana;
+    }
+    document.getElementById('heroMana').innerHTML = currCharacter.mana;
     document.getElementById("badieName").innerText = "DEAD MEAT!";
     document.getElementById('badieHealth').innerHTML = null;
     document.getElementById('choice').removeAttribute('class', 'hidden');
@@ -130,6 +145,7 @@ const handleAttack = (event) => {
   }
   if (currCharacter.isDead()) {
     document.getElementById("dead").innerText = 'DEAD MEAT!';
+    document.getElementById('heroHealth').innerHTML = 0;
     document.getElementById('moves').setAttribute('class', 'hidden');
     document.getElementById('reset').removeAttribute('class', 'hidden');
   }
@@ -137,18 +153,58 @@ const handleAttack = (event) => {
 
 const handleMagic = (event) => {
   event.preventDefault();
-  currBadie.health -= currCharacter.magic(currCharacter.chance())
-  document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
-  if (!currBadie.isDead()) {
+  if (currCharacter.mana < 3) {
+    document.getElementById("dead").innerText = 'NOT ENOUGH MANA!';
+  } else {
+    document.getElementById("dead").innerText = null;
+    currCharacter.mana -= 3;
+    document.getElementById('heroMana').innerHTML = currCharacter.mana;
+    currBadie.health -= currCharacter.magic(currCharacter.chance())
+    document.getElementById("badieHealth").innerText = `Health: ${currBadie.health}`;
+    if (!currBadie.isDead()) {
+      currCharacter.health -= currBadie.attack(currBadie.chance())
+      document.getElementById("heroHealth").innerText = currCharacter.health;
+    } else {
+      currCharacter.exp += currBadie.exp;
+      currCharacter.lvlUp();
+      document.getElementById('heroName').innerHTML = currCharacter.name;
+      document.getElementById('heroLevel').innerHTML = currCharacter.level;
+      document.getElementById('heroHealth').innerHTML = currCharacter.health;
+      document.getElementById('heroAttack').innerHTML = currCharacter.atk;
+      document.getElementById('heroMagic').innerHTML = currCharacter.mag;
+      document.getElementById('heroMana').innerHTML = currCharacter.mana;
+      document.getElementById('heroExp').innerHTML = currCharacter.exp;
+      document.getElementById("heroExp").innerText = currCharacter.exp;
+      document.getElementById("badieName").innerText = "DEAD MEAT!";
+      if (currCharacter.mana + 3 < currCharacter.maxMana) {
+        currCharacter.mana += 3;
+      } else {
+        currCharacter.mana = currCharacter.maxMana;
+      }
+      document.getElementById('heroMana').innerHTML = currCharacter.mana;
+      document.getElementById('badieHealth').innerHTML = null;
+      document.getElementById('choice').removeAttribute('class', 'hidden');
+      document.getElementById('moves').setAttribute('class', 'hidden');
+    }
+    if (currCharacter.isDead()) {
+      document.getElementById("dead").innerText = 'DEAD MEAT!';
+      document.getElementById('moves').setAttribute('class', 'hidden');
+      document.getElementById('reset').removeAttribute('class', 'hidden');
+    }
+  }
+};
+
+const handleHeal = (event) => {
+  event.preventDefault();
+  if (currCharacter.mana < 5) {
+    document.getElementById("dead").innerText = 'NOT ENOUGH MANA!';
+  } else {
+    currCharacter.health = currCharacter.maxHealth;
+    currCharacter.mana -= 5;
+    document.getElementById('heroHealth').innerHTML = currCharacter.health;
+    document.getElementById('heroMana').innerHTML = currCharacter.mana;
     currCharacter.health -= currBadie.attack(currBadie.chance())
     document.getElementById("heroHealth").innerText = currCharacter.health;
-  } else {
-    currCharacter.exp += currBadie.exp;
-    document.getElementById("heroExp").innerText = currCharacter.exp
-    document.getElementById("badieName").innerText = "DEAD MEAT!";
-    document.getElementById('badieHealth').innerHTML = null;
-    document.getElementById('choice').removeAttribute('class', 'hidden');
-    document.getElementById('moves').setAttribute('class', 'hidden');
   }
   if (currCharacter.isDead()) {
     document.getElementById("dead").innerText = 'DEAD MEAT!';
@@ -171,6 +227,7 @@ addEventListener('load', function () {
   document.getElementById('leave').addEventListener('click', handleLeave);
   document.getElementById('attack').addEventListener('click', handleAttack);
   document.getElementById('magic').addEventListener('click', handleMagic);
+  document.getElementById('heal').addEventListener('click', handleHeal);
   document.getElementById('restart').addEventListener('click', handleRestart);
 });
 
