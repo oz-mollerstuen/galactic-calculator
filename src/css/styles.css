@@ -19,3 +19,10 @@ h1#dead {
   text-align: center;
 }
 
+span#atkDamage {
+  color: red;
+}
+
+span#badieAtkDamage {
+  color: red;
+}
