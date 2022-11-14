@@ -46,18 +46,32 @@ export default class UserAge {
 
 earthYears() {
   let ages = this.age
-  if(ages <= 85) {
+  if(ages <= 90) {
     let deathIn = 0
-    deathIn = Math.round(85 - ages);
+    deathIn = Math.round(90 - ages);
     this.years = deathIn
     return deathIn;
   } else {
     let yearsPast = 0
-    yearsPast = Math.round(ages - 85)
+    yearsPast = Math.round(ages - 90)
     this.years = yearsPast;
     return yearsPast
   }
 }
 
+mercYears() {
+  let agesMerc = this.mercury
+  if(agesMerc <= 20) {
+    let deathInMerc = 0
+    deathInMerc = Math.round(22 - agesMerc);
+    this.mercTill = deathInMerc
+    return deathInMerc;
+  } else {
+    let yearsPastMerc = 0
+    yearsPastMerc = Math.round(agesMerc - 22)
+    this.mercTill = yearsPastMerc;
+    return yearsPastMerc
+  }
+}
 
 }
