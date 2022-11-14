@@ -61,7 +61,7 @@ earthYears() {
 
 mercYears() {
   let agesMerc = this.mercury
-  if(agesMerc <= 20) {
+  if(agesMerc <= 22) {
     let deathInMerc = 0
     deathInMerc = Math.round(22 - agesMerc);
     this.mercTill = deathInMerc
@@ -71,6 +71,21 @@ mercYears() {
     yearsPastMerc = Math.round(agesMerc - 22)
     this.mercTill = yearsPastMerc;
     return yearsPastMerc
+  }
+}
+
+venYears() {
+  let agesVen = this.venus
+  if(agesVen <= 56) {
+    let deathInVen = 0
+    deathInVen = Math.round(56 - agesVen);
+    this.venTill = deathInVen
+    return deathInVen
+  } else {
+    let yearsPastVen = 0
+    yearsPastVen = Math.round(agesVen - 56)
+    this.venPast = yearsPastVen
+    return yearsPastVen
   }
 }
 
