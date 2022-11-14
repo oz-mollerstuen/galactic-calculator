@@ -89,4 +89,19 @@ venYears() {
   }
 }
 
+marsYears() {
+  let agesMars = this.mars
+  if(agesMars <= 169) {
+    let deathInMars = 0
+    deathInMars = Math.round(169 - agesMars);
+    this.marsTill = deathInMars
+    return deathInMars
+  } else {
+    let yearsPastMars = 0
+    yearsPastMars = Math.round(agesMars - 169)
+    this.marsPast = yearsPastMars
+    return yearsPastMars
+  }
+}
+
 }
