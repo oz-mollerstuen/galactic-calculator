@@ -5,7 +5,7 @@ export default class UserAge {
     this.venus = venAge;
     this.mars = marsAge;
     this.jupiter = jupAge;
-    this.earth = earthAge;
+    this.years = earthAge;
     this.mercTill = mercTill;
     this.mercPast = mercPast;
     this.venTill = venTill;
@@ -43,6 +43,21 @@ export default class UserAge {
     this.jupiter = jupAge;
     return this.jupiter
   }
+
+earthYears() {
+  let ages = this.age
+  if(ages <= 85) {
+    let deathIn = 0
+    deathIn = Math.round(85 - ages);
+    this.years = deathIn
+    return deathIn;
+  } else {
+    let yearsPast = 0
+    yearsPast = Math.round(ages - 85)
+    this.years = yearsPast;
+    return yearsPast
+  }
+}
 
 
 }
