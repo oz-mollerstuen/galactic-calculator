@@ -52,9 +52,19 @@ describe('UserAge', () => {
     expect(input.venYears()).toEqual(40)
   })
  
-  test('On Venus, it should tell user how many years until they are 22/how many past 22', () => {
+  test('On Venus, it should tell user how many years until they are 56/how many past 56', () => {
     let input = new UserAge(25, 6, 66);
     expect(input.venYears()).toEqual(10)
+  })
+  
+  test('On Mars, it should tell user how many years until they are 169, or how many past', () => {
+    let input = new UserAge(25, 6, 16, 47);
+    expect(input.marsYears()).toEqual(122)
+  })
+ 
+  test('On Mars, it should tell user how many years until they are 169/how many past', () => {
+    let input = new UserAge(25, 6, 16, 200);
+    expect(input.marsYears()).toEqual(31)
   })
   
 
