@@ -16,7 +16,11 @@ describe('UserAge', () => {
     let input = new UserAge(36);
     expect(input.findVenAge()).toEqual(22)
   });
-  
+
+  test('It should use age input to find age on Mars', () => {
+    let input = new UserAge(36);
+    expect(input.findMarsAge()).toEqual(68)
+  });
 })
 
 
