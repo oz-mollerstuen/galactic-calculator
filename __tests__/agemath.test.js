@@ -32,19 +32,29 @@ describe('UserAge', () => {
     expect(input.earthYears()).toEqual(54)
   })
 
-  test('On Earth, it should tell user how many years until they are 90, as well as how many past 90', () => {
+  test('On Earth, it should tell user how many years until they are 90/how many past 90', () => {
     let input = new UserAge(95);
     expect(input.earthYears()).toEqual(5)
   })
 
-  test('On Mercury, it should tell user how many years until they are 22, as well as how many past 22', () => {
+  test('On Mercury, it should tell user how many years until they are 22/how many past 22', () => {
     let input = new UserAge(25, 6);
     expect(input.mercYears()).toEqual(16)
   })
  
-  test('On Mercury, it should tell user how many years until they are 22, as well as how many past 22', () => {
+  test('On Mercury, it should tell user how many years until they are 22, or how many past 22', () => {
     let input = new UserAge(25, 25);
     expect(input.mercYears()).toEqual(3)
+  })
+
+  test('On Venus, it should tell user how many years until they are 56, or how many past 56', () => {
+    let input = new UserAge(36);
+    expect(input.venYears()).toEqual(34)
+  })
+ 
+  test('On Venus, it should tell user how many years until they are 22/how many past 22', () => {
+    let input = new UserAge(36);
+    expect(input.venYears()).toEqual(34)
   })
   
 
