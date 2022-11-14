@@ -22,5 +22,13 @@ export default class UserAge {
     this.mercury = mercAge
     return this.mercury
   }
+
+  findVenAge() {
+    let venAge = 0;
+    venAge = Math.round(this.age * .62);
+    this.venus = venAge;
+    return this.venus
+  }
+
   
 }
