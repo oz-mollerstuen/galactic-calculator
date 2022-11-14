@@ -113,7 +113,7 @@ jupYears(){
     return deathInJup
   } else {
     let yearsPastJup = 0
-    yearsPastJup = Math.round(1067 - agesJup)
+    yearsPastJup = Math.round(agesJup - 1067)
     this.jupPast = yearsPastJup
     return yearsPastJup
   }
