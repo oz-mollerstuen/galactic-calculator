@@ -69,12 +69,12 @@ describe('UserAge', () => {
   
   test('On Jupiter, it should tell user how many years until they are 1067, or how many past', () => {
     let input = new UserAge(25, 6, 16, 47, 297);
-    expect(input.jupYears()).toEqual(-770)
+    expect(input.jupYears()).toEqual(770)
   })
  
   test('On Jupiter, it should tell user how many years until they are 1067/how many past', () => {
     let input = new UserAge(25, 6, 16, 47, 1100);
-    expect(input.jupYears()).toEqual(-33)
+    expect(input.jupYears()).toEqual(33)
   })
 
 })

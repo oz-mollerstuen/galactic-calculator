@@ -106,7 +106,7 @@ marsYears() {
 
 jupYears(){
   let agesJup = this.jupiter
-  if(agesJup >= 1067) {
+  if(agesJup <= 1067) {
     let deathInJup = 0
     deathInJup = Math.round(1067 - agesJup)
     this.jupTill = deathInJup
