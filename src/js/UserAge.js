@@ -30,5 +30,12 @@ export default class UserAge {
     return this.venus
   }
 
+  findMarsAge() {
+    let marsAge = 0
+    marsAge = Math.round(this.age * 1.88);
+    this.mars = marsAge;
+    return this.mars
+  }
+
   
 }
