@@ -27,15 +27,26 @@ describe('UserAge', () => {
     expect(input.findJupAge()).toEqual(427)
   });
 
-  test('On Earth, it should tell user how many years until they are 85, as well as how many till 85', () => {
+  test('On Earth, it should tell user how many years until they are 85, as well as how many paast 85', () => {
     let input = new UserAge(36);
     expect(input.earthYears()).toEqual(49)
   })
 
-  test('On Earth, it should tell user how many years until they are 85, as well as how many till 85', () => {
+  test('On Earth, it should tell user how many years until they are 85, as well as how many past 85', () => {
     let input = new UserAge(90);
     expect(input.earthYears()).toEqual(5)
   })
+
+  test('On Mercury, it should tell user how many years until they are 20, as well as how many past 20', () => {
+    let input = new UserAge(36);
+    expect(input.mercYears()).toEqual(11)
+  })
+ 
+  test('On Mercury, it should tell user how many years until they are 20, as well as how many past 20', () => {
+    let input = new UserAge(90);
+    expect(input.mercYears()).toEqual(2)
+  })
+  
 
 })
 
