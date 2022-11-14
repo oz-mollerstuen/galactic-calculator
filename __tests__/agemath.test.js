@@ -9,7 +9,7 @@ describe('UserAge', () => {
 
   test('It should use age imput to find age on Mercury', () => {
     let input = new UserAge(36);
-    expect(input.findMercAge()).toEqual(8.6)
+    expect(input.findMercAge()).toEqual(9)
   })
 })
 

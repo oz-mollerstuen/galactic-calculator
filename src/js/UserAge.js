@@ -15,4 +15,12 @@ export default class UserAge {
     this.jupTill = jupTill;
     this.jupPast = jupPast
   }
+
+  findMercAge() {
+    let mercAge = 0
+    mercAge = Math.round(this.age * .24);
+    this.mercury = mercAge
+    return this.mercury
+  }
+  
 }
