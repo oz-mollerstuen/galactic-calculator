@@ -17,7 +17,7 @@ module.exports = {
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Role Playing Game',
+      title: 'galactic-calculator',
       template: './src/index.html',
       inject: 'body'
     })
