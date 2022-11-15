@@ -51,7 +51,7 @@ earthYears() {
     let deathIn = 0
     deathIn = Math.round(oldAge - ages);
     this.years = deathIn
-    return "Out with the old, in with the new! " + deathIn + " years until your space-hearse is ready!";
+    return "Out with the old, in with the new! " + deathIn + " Earth years until your space-hearse is ready!";
   } else {
     let yearsPast = 0
     yearsPast = Math.round(ages - oldAge)

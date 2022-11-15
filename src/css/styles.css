@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(181, 107, 33);
+}
+
+h4 {
+  color: rgb(77, 36, 115);
+}
+
+p {
+  font-size: x-large;
+  font-family:fantasy;
+  color: rgb(53, 65, 196);
+}
+
+h1 {
+  font-family: monospace;
+  color: rgb(245, 48, 231);
+}
