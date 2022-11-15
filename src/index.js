@@ -7,11 +7,17 @@ function handleform (event) {
   event.preventDefault();
   let currAge = document.getElementById('input1').value;
   let uAge1 = new UserAge(currAge)
+  
+  uAge1.earthYears()
+  let currAgeEarth = document.getElementById('input1').value;
+  document.getElementById('p5a').innerHTML = currAgeEarth
+  document.getElementById('p5b').innerHTML = uAge1.earthYears()
+  
   uAge1.findMercAge()
   let currAgeMerc = uAge1.mercury
   document.getElementById('p1a').innerHTML = currAgeMerc
  
-  document.getElementById('p1b').innerHTML =  uAge1.mercYears()
+  document.getElementById('p1b').innerHTML = uAge1.mercYears()
 
   uAge1.findVenAge()
   let currAgeVen = uAge1.venus
